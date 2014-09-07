@@ -14,7 +14,7 @@
 
 	<div style="margin: 0 auto; width: 75%; text-align: center;">
 
-		<form:form modelAttribute="login" method="POST"
+		<form:form commandName="login" method="POST"
 			action="authenticate">
 			<table>
 				<tr>

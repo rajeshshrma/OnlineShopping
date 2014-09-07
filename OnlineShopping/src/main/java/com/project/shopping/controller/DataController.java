@@ -2,13 +2,10 @@ package com.project.shopping.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,8 +20,10 @@ public class DataController {
 	IDataService dataService;
 
 	@RequestMapping("loginform")
-	public ModelAndView getForm() {
-		return new ModelAndView("loginform");
+	public String getForm(Model model) {		
+		//ModelAndView model = new ModelAndView("loginform");
+		model.addAttribute("login", new UserLoginDetail()); 
+		return "loginform";
 	}
 
 	@RequestMapping(value = "authenticate", method = RequestMethod.GET)
